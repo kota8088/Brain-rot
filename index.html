@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <mata rharset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <tytle>レーシングシュミレーター</tytle>
+    <link rel="stylesheet".href="style.css" />
+    <boby>
+        <div id="game">
+            <!--　ゲーム描画用キャンバス -->
+            <canvas id="gameCanvas" width="960" height="600"></canvas>
+
+<!-- 画面上のHUD（速度・ラップ・タイム・ベスト）-->
+ <div id="hud">
+    <div class="hud-item">
+        <span class="label">SPEED</span>
+        <span id="speedValue" class="value">0</span>
+        <span class="unit">km/h</span>
+    </div>
+    <div class="hud-item">
+        <span class="label">LAP</span>
+        <span class="lapValue" class="value">1 / 3</span>
+    </div>
+    <div class="hud-item">
+        <span class="lavel">TIME</span>
+        <span id="timeValue" class="value">--.--</span>
+    </div>
+</div>
+<!--画面下のタコメーター（RPMバー + ギア）-->
+<div id="tachometer">
+    <div class="bar"><div id=rpmFill></div></div>
+    <span class="label">GEAR</span>
+    <span id="gearValue">1</span>
+        </div>
+    </boby>
+
+    <!--　スタート画面　-->
+    <div id="startScreen" class="overlay">
+        <h1>RACING</h1>
+        <p>レーシングシュミレーター</p>
+        <ul class="controls">
+            <li><b>↑</b> / <b>W</b> : アクセル</li>
+            <li><b>↑</b> / <b>S</b> : ブレーキ</li>
+            <li><b>←→</b> / <b>A D</Data></b> : ハンドル</li>
+            <li><b>Shift</b> : ターボ</li>
+            <li><b>M</b> : ミュート切り替え</li>
+        </ul>
+        <button id="startBtn">START</button>
+    </div>
+
+    <!-- ゴール画面 -->
+    <div id="finishScreen" class="overlay hidden">
+        <h1>FINISH!</h1>
+        <p>TIME : <span id="finalTime">0.00</span>秒</p>
+        <p>BEST : <span id="finalBest">--.--</span>秒</p>
+        <button id="restartBtn">もう一度</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>>
+</html>
