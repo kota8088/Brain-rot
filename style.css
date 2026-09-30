@@ -1,0 +1,175 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, boby {
+    width:100%;
+    height: 100%;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: "Helvetica Neue", "hiragino Sans", "Yu Gothic", sans-serif;
+    overflow: hidden;
+}
+
+boby {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ゲームの枠（960×600の固定サイズ）*/
+#game {
+position:relative;
+width: 960px;
+height: 500px;
+box-shadow: 0 0 60px rgba(0,200,250,0.25);
+border-radius: 6px;
+overflow: hidden
+}
+
+/* キャンバス（背景は空のグラデーション）*/
+#gameCanvas {
+    display: block;
+    width:100%;
+    height: 100%;
+background: linear-gradient(#2d2a4d 0%, #1a4f8a 35%, #f0a070 70%, #f8c89e 100%);
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    pointer-events: none;
+    font-family: "Courir New", monospace;
+}
+
+.hud-item {
+    background: rgba(0, 0, 0, 0.55);
+    border:1px solid rgba(0, 220, 255, 0.4);
+    border-radius: 4px;
+    padding: 6px 12px;
+    min-width: 120;
+    text-align: conter;
+}
+
+.hud-item .label {
+display: block;
+font-size: 11px;
+letter-spacing: 12px;
+color: #6ee0ff;
+}
+
+.hud-item.value {
+    font-size:22px;
+    font-weight: bold;
+    color:#fff;
+    text-shadow: 0 0 8px rgba(0, 220, 255, 8.6);
+}
+
+.hud-item .unit {
+    font-size:11px;
+    color:#aaa;
+    margin-left:4px;
+}
+
+#tachmeter {
+    position: absolute;
+    display:flex;
+    align-items: center;
+gap: 14px;
+background: rgba(0, 0, 0, 0.55);
+border: 1px solid rgba(0, 220, 255,0.4);
+border-radius: 4px;
+padding: 8px 16px;
+pointer-events: none;
+font-family: "Courier New", monspace;
+}
+
+.bar{
+    width: 240px;
+    height: 14px;
+    background: rgba(255, 255, 255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#rpmFill {
+    width: 0%;
+    height: 100%;
+background: linear-gradient(90deg,#00ff88 0%, #ffe44d 60%, #ff3030 100%);
+transition: width 0.05s linear;
+}
+
+.gear { text-align:center; }
+.gear .label {
+display:block;
+color:#6ee0ff;
+letter-spacing:2px;
+}
+.gear #gearValue { font-size:22px; font-weight: bold; }
+
+.overlay {
+position: absolute;
+background: rgba(0, 0, 0, 0.7);
+display:flex;
+flex-direction:column;
+align-items: center;
+justify-content:center;
+gap: 14px;
+text-align: center;
+z-index: 10;
+}
+
+.overlay.hidden { display: none; }
+
+.overlay h1 {
+    font-size: 72px;
+    letter-spacing: 12px;
+    color: #fff;
+    text-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff;
+}
+
+.overlay p { font-size: 16px; color: #ddd; }
+
+.controls {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 6px 24px;
+    margin: 8px 0 16px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.controls b {
+    display: inline-block;
+    min-width: 26px;
+    padding: 1px 6px;
+    margin-right: 6px;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 3px;
+    color: #6ee0ff;
+    font-family: "Courier New", monospace;
+}
+
+button {
+    margin-top: 12px;
+    padding: 12px 36px;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #fff;
+    background: linear-gradient(180deg, #007acc, #004080);
+    border: 1px solid #00bfff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: linear-gradient(180deg, #00a0ff, #0060b0);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+}
